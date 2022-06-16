@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>API FRONTEND</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="./jquery-3.4.1.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- JQuery -->
+    <!-- My JQuery -->
+    <script src="./myjquery.js" defer></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body class="container">
+    <h1>Storage.pk : <span id="heading">find storage facilities online</span></h1>
+  
+    <!-- add recipe form -->
+    <div class="form-group">
+      <label for="title">Location</label>
+      <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp"
+        placeholder="e.g. Glasgow">
+      <small id="titleHelp" class="form-text text-muted">Enter required location</small>
+    </div>
+  
+    <div class="form-group">
+      <label for="body">Details</label>
+      <input type="text" class="form-control" name="body" id="body" aria-describedby="bodyHelp"
+        placeholder="e.g. A store room for storing my music gear">
+      <small id="bodyHelp" class="form-text text-muted"> Enter details regarding the storage facility you need</small>
+    </div>
+  
+    <button id="addbtn" class="btn btn-info">Post</button>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body">
+              <input type="hidden" id="updateId"> <br>
+              
+              <div class="form-group">
+                <label for="updateTitle">Title</label>
+                <input type="text"
+                  class="form-control" name="updateTitle" id="updateTitle" aria-describedby="helpId" placeholder="">
+                <small id="helpId" class="form-text text-muted">Enter Title</small>
+              </div>
+
+              <!-- <input type="text" id="updateTitle"> <br> -->
+              <div class="form-group">
+                <label for="updateBody">Description</label>
+                <input type="text"
+                  class="form-control" name="updateBody" id="updateBody" aria-describedby="helpId" placeholder="">
+                <small id="helpId" class="form-text text-muted">Enter Description</small>
+              </div>  
+
+              <!-- <input type="text"id="updateBody"> <br> -->
+              <button type="button" class="btn btn-info" id="updateSave">Update</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>  
+
+
+<div id="recipes">
+    Loading...
+  </div>
+
+
+  
+<!-- Reviews Section -->
+<div class="reviews-secton">
+  <div class="container">
+    <div class="mgb-40 padb-30 auto-invert line-b-4 align-center">
+      <h4 class="font-cond-l fg-accent lts-md mgb-10" contenteditable="false">What our users say about the app?</h4>
+    </div>
+    <ul class="hash-list cols-3 cols-1-xs pad-30-all align-center text-sm">
+      <li class="reviews-list" >
+        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="wpx-100 img-round mgb-20" title="" alt=""
+          data-edit="false" data-editor="field"
+          data-field="src[Image Path]; title[Image Title]; alt[Image Alternate Text]">
+        <p class="fs-110 font-cond-l" contenteditable="false">" Awesome App! Being in supply-chain I needed a cellar in dublin, found one through this app "</p>
+        <h5 class="font-cond mgb-5 fg-text-d fs-130" contenteditable="false">Martha Stewart</h5>
+        <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false">Business Traveller - Birmingham
+        </small>
+      </li>
+      <li class="reviews-list">
+        <img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="wpx-100 img-round mgb-20" title="" alt=""
+          data-edit="false" data-editor="field"
+          data-field="src[Image Path]; title[Image Title]; alt[Image Alternate Text]">
+        <p class="fs-110 font-cond-l" contenteditable="false">" This App had been extremely helpful in storing my equipments at several places that I visited "</p>
+        <h5 class="font-cond mgb-5 fg-text-d fs-130" contenteditable="false">Ariana Menage</h5>
+        <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false">Recording Artist - Los
+          Angeles</small>
+      </li>
+      <li class="reviews-list">
+        <img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="wpx-100 img-round mgb-20" title="" alt=""
+          data-edit="false" data-editor="field"
+          data-field="src[Image Path]; title[Image Title]; alt[Image Alternate Text]">
+        <p class="fs-110 font-cond-l" contenteditable="false">"Very useful App! on a simple search you can find a storage facility around you. Kudos to the founders!!! "</p>
+        <h5 class="font-cond mgb-5 fg-text-d fs-130" contenteditable="false">Sean Carter</h5>
+        <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false">Fund Manager - Chicago</small>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+<!-- Copyright -->
+
+<!-- Facebook -->
+<a class="fb-ic">
+  <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+</a>
+
+<div class="footer-copyright text-center py-3"> 2022 Copyright © :
+  <a href="/"> Storage.herokuapp.com</a>
+</div>
+<!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+</body>
+</html>
